@@ -1,27 +1,79 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Create JSON for Quiz</title>
-  <link rel="stylesheet" href="./css/index.css">
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-  <style type="text/css">
-  </style>
-</head>
-<h2>Create your questions</h2>
-<div class="otherTexts">
-  <div><label>ID: </label><input type="text" class="textField" id="quizId" value="101" /></div>
-<div><label>LandingPage title: </label><input class="textField" type="text" id="landingPage_title" value="Answer this simple question & unlock the game & win exciting offers" /></div>
-<div><label>LandingPage sub title: </label><input class="textField" type="text" id="landingPage_subTitle" value="Today’s Deal- Win Rs. 300 Lorem ipsum" /></div>
-</div>
-<div id="questionsHtm"></div>
-<button class="addQuestion" onclick="qlist.addQuestion();updateHtml();">Add Question</button>
-<button class="createJson" onclick="createJson();">Create JSON</button>
+<!DOCTYPE html>
+<html lang="en">
 
-<div >
-  <pre style="width:100%; height:-webkit-fill-available;" id="questJson"></pre>
-</div>
-<body>    
-<script src="./JS/index.js"></script>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Create JSON for Quiz</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+	<style type="text/css">
+	</style>
+</head>
+
+<body class="fl w-100">
+	<div class="f2 bg-gold center">
+		<p>Create your questions</p>
+	</div>
+	<div class="center">
+		<form>
+			<fieldset>
+				<label class="ma1 b fl w-20 lh-copy">ID: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="quizId" value="101" />
+			</fieldset>
+			<br>
+			<fieldset>
+				<legend class="b bg-light-yellow">LandingPage:</legend>
+				<label class="ma1 b fl w-20 lh-copy">Title: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="landingPage_title" value="Answer this simple question & unlock the game & win exciting offers" />
+				<label class="ma1 b fl w-20 lh-copy">Sub Title: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="landingPage_subTitle" value="Today’s Deal- Win Rs. 300 Lorem ipsum" />
+				<label class="ma1 b fl w-20 lh-copy">Quiz Title: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="landingPage_quizTitle" value="Answer this simple question & unlock the game & win exciting offers" />
+				<label class="ma1 b fl w-20 lh-copy">Quiz Complete Sub Title: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="landingPage_quizCompleteSubTitle" value="You've already completed this quiz!" />
+			</fieldset>
+			<br>
+			<fieldset>
+				<legend class="b bg-light-yellow">SuccessPage:</legend>
+				<label class="ma1 b fl w-20 lh-copy">Title: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="successPage_title" value="Congratulations!" />
+				<label class="ma1 b fl w-20 lh-copy">Sub Title: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="successPage_subTitle" value="Awesome! Your answers were correct and" />
+				<label class="ma1 b fl w-20 lh-copy">Won Text: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="successPage_wonText" value="You’ve Won Rs. 300" />
+				<label class="ma1 b fl w-20 lh-copy">Coupon: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="successPage_coupon" value="SD6709DH678" />
+				<label class="ma1 b fl w-20 lh-copy">Expiry Text: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="successPage_expText" value="Expires in 30 Days" />
+			</fieldset>
+			<br>
+			<fieldset>
+				<legend class="b bg-light-yellow">ErrorPage:</legend>
+				<label class="ma1 b fl w-20 lh-copy">Title: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="errorPage_title" value="Sorry! You’ve lost" />
+				<label class="ma1 b fl w-20 lh-copy">Sub Title: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="errorPage_subTitle" value="Sorry! Your answers were wrong. Try next time and win prizes." />
+			</fieldset>
+			<fieldset>
+				<legend class="b bg-light-yellow">Config:</legend>
+				<label class="ma1 b fl w-20 lh-copy">Time to display Next Question: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="nextQtime" value="1000" />
+				<label class="ma1 b fl w-20 lh-copy">Time to display Next Question for wrong answer: </label>
+				<input class="ma1 pa1 fl w-70 input-reset ba" type="text" id="wrongQtime" value="2000" />
+			</fieldset>
+		</form>
+	</div>
+	<div id="questionsHtm"></div>
+	<div class="ma3">
+		<button class="mw5 b ph3 pv2 input-reset ba b--black grow pointer mr4" onclick="qlist.addQuestion();updateHtml();">Add Question</button>
+		<button class="mw5 b ph3 pv2 input-reset ba b--black grow pointer mr4" onclick="createJson();">Create JSON</button>
+		<!-- <button class="mw5 b ph3 pv2 input-reset ba b--black grow pointer" onclick="copyJson();">Copy JSON</button> -->
+	</div>
+	<div>
+		<pre style="width:100%; height:-webkit-fill-available;" id="questJson"></pre>
+	</div>
+	<script src="./JS/index.js"></script>
 </body>
+
 </html>
