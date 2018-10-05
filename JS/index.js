@@ -105,7 +105,6 @@ function updateHtml(){
 
 var qlist = new QuestionList();
 qlist.addQuestion();
-qlist.addQuestion();
 updateHtml();
 
 
@@ -128,6 +127,23 @@ function createJson() {
     }
     
     document.getElementById('questJson').innerHTML = JSON.stringify(qJson, undefined, 2);
+}
+
+function copyJson() {
+    if (navigator.clipboard) {
+        var questTextArea = document.getElementById('questJson');
+        if(questTextArea) {
+            questTextArea.focus();
+            questTextArea.select();
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Fallback: Copying text command was ' + msg);
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+        }
+    }
 }
 
 function addOtherTextFileds(obj){

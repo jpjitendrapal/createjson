@@ -21,10 +21,6 @@
 .question .ans-text{
     width: 50%;
 }
-#questJson{
-    max-width: 60%;
-    margin: 40px;
-}
 fieldset{
     border: none;
 }
