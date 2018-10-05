@@ -105,6 +105,7 @@ function updateHtml(){
 
 var qlist = new QuestionList();
 qlist.addQuestion();
+qlist.addQuestion();
 updateHtml();
 
 
