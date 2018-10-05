@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Create JSON for Quiz</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <style type="text/css">
+  </style>
+</head>
+<h2>Create your questions</h2>
+<div class="otherTexts">
+  <div><label>ID: </label><input type="text" class="textField" id="quizId" value="101" /></div>
+<div><label>LandingPage title: </label><input class="textField" type="text" id="landingPage_title" value="Answer this simple question & unlock the game & win exciting offers" /></div>
+<div><label>LandingPage sub title: </label><input class="textField" type="text" id="landingPage_subTitle" value="Today’s Deal- Win Rs. 300 Lorem ipsum" /></div>
+</div>
+<div id="questionsHtm"></div>
+<button class="addQuestion" onclick="qlist.addQuestion();updateHtml();">Add Question</button>
+<button class="createJson" onclick="createJson();">Create JSON</button>
+
+<div >
+  <pre style="width:100%; height:-webkit-fill-available;" id="questJson"></pre>
+</div>
+<body>    
+<script src="./JS/index.js"></script>
+</body>
+</html>

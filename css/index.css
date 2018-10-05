@@ -1,0 +1,56 @@
+body{
+    font-size: 15px;
+}
+#questionsHtm{
+    max-width: 700px;
+}
+.question{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid orange;
+    position: relative;
+}
+.question::before{
+    content: "Q."
+}
+.question .delete{
+    content: "X";
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    padding: 5px;
+    cursor: pointer;
+}
+.ans::before{
+    content: ""
+}
+input{
+    font-size: 15px;
+}
+.question .q-text{
+    width: 80%;
+}
+.question .ans-text{
+    width: 50%;
+}
+.createJson{
+    width: 60%;
+    font-size: 20px;
+    background-color: burlywood;
+    margin: 10px;
+}
+.addQuestion{
+    width: 30%;
+    font-size: 15px;
+    margin: 10px;
+    display: block;
+    background-color: cornflowerblue;
+}
+#questJson{
+    max-width: 60%;
+    margin: 40px;
+}
+
+.otherTexts .textField{
+    width: 60%;
+}
