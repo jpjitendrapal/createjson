@@ -20,7 +20,7 @@ Question.prototype = {
         var htm;
         htm = "<fieldset><legend class='b bg-light-yellow'>Question " + this.id + ":</legend>" + 
             "<div data-id='" + this.id + "' class='question'>" +
-            "<div onclick='qlist.deleteQuestion(" + this.id + ");updateHtml();' data-qid='" + this.id +"' class='delete'>X</div>" +
+            // "<div onclick='qlist.deleteQuestion(" + this.id + ");updateHtml();' data-qid='" + this.id +"' class='delete'>X</div>" +
             "<input class='q-text ba lh-copy' type='text' value='" + this.text + "'>" + this.renderOptions() +
             "</div></fieldset>";
 
@@ -104,6 +104,9 @@ function updateHtml(){
 }
 
 var qlist = new QuestionList();
+qlist.addQuestion();
+qlist.addQuestion();
+qlist.addQuestion();
 qlist.addQuestion();
 updateHtml();
 
